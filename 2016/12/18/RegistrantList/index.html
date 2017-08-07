@@ -77,29 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-概述这其实是观察者模式的一种实现形式
-先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant">
+<meta name="description" content="概述这其实是观察者模式的一种实现形式 先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant作为观察者，">
+<meta name="keywords" content="Android,RegistrantList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android RegistrantList 详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2016/12/18/RegistrantList/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-概述这其实是观察者模式的一种实现形式
-先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant">
-<meta property="og:updated_time" content="2017-08-07T15:46:02.810Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="概述这其实是观察者模式的一种实现形式 先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant作为观察者，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:20.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android RegistrantList 详解">
-<meta name="twitter:description" content="[TOC]
-概述这其实是观察者模式的一种实现形式
-先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant">
+<meta name="twitter:description" content="概述这其实是观察者模式的一种实现形式 先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant作为观察者，">
 
 
 
@@ -135,7 +131,6 @@
 
   <title> Android RegistrantList 详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -373,8 +368,7 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这其实是观察者模式的一种实现形式</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这其实是观察者模式的一种实现形式</p>
 <p>先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。<br>RegistrantList通知者支持对通知者的增加（add/addUnique）删除（remove），并且能够发出通知（notifyRegitrants）；而Registrant作为观察者，响应通知者发出的notifyRegistrant通知，并由其internalNotifyRegistrants方法响应通知者发出的通知。<br>整体上这个消息注册机制分为两部分，消息注册和消息通知。其总体思想是：一个对象中开辟一个空间用于存放Message，当调用regist方法时将Message存放进去，当其调用notify方法时将所有Message取出并发送到MessageQueue中等待处理。</p>
 <p>下面我们以android 5.0上 来电流程为例讲一下RegistrantList机制的使用。</p>
 <h2 id="注册为观察者"><a href="#注册为观察者" class="headerlink" title="注册为观察者"></a>注册为观察者</h2><pre><code>PstnIncomingCallNotifier这个类中调用mphoneBase中的registerForNewRingingConnection方法注册为观察者，android中的注册为观察者的方法通常写为registerFor***()形式，即为某事件注册消息通知。 PstnIncomingCallNotifier.java
@@ -528,6 +522,9 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -714,6 +711,8 @@
   
 
 
+  
+
 
 
   
@@ -733,6 +732,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

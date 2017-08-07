@@ -77,26 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已">
+<meta name="description" content="SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已经Root，">
+<meta name="keywords" content="Android,Sqlite3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Sqlite3 使用详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2017/05/08/sqlite3/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已">
-<meta property="og:updated_time" content="2017-08-07T15:49:37.605Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已经Root，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:07.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Sqlite3 使用详解">
-<meta name="twitter:description" content="[TOC]
-SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已">
+<meta name="twitter:description" content="SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已经Root，">
 
 
 
@@ -132,7 +131,6 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
 
   <title> Android Sqlite3 使用详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -370,8 +368,7 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
       
 
       
-        <p>[TOC]</p>
-<h2 id="SQLite命令"><a href="#SQLite命令" class="headerlink" title="SQLite命令"></a>SQLite命令</h2><p>SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已经Root，并且包含sqlite3这个命令文件。</p>
+        <h2 id="SQLite命令"><a href="#SQLite命令" class="headerlink" title="SQLite命令"></a>SQLite命令</h2><p>SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模拟器来对SQLite支持的各种命令进行演示，如果你想用手机的话也可以，但要确保你的手机已经Root，并且包含sqlite3这个命令文件。</p>
 <p>首先确保模拟器已经连接上了电脑，然后在命令行输入adb shell进入控制台，如下图所示：</p>
 <p>注意#符号表示我们当前已经是超级用户了，如果显示的是$符号，表示当前只是普通用户而已，这时还需要输入su命令切换一下用户身份才行。</p>
 <p>有了超级用户权限之后，我们能做的事情就很多了，这里我们先查看一下系统自带的联系人表吧。进入到/data/data目录下，如下图所示：</p>
@@ -521,6 +518,9 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -707,6 +707,8 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
   
 
 
+  
+
 
 
   
@@ -726,6 +728,9 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

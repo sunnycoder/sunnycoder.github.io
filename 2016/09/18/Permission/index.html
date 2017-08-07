@@ -77,41 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。
-支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。
-概述(Overview)下面是运行时权限机制的关键部分的简要概述
-
-声明权限(Declaring Permissions):
-应用需要在man">
+<meta name="description" content="[TOC] Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。 支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。 概述(Overview)下面是运行时权限机制的关键部分的简要概述  声明权限(Declaring Permissions): 应用需要在man">
+<meta name="keywords" content="Android,Permission">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android M Permission 详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2016/09/18/Permission/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。
-支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。
-概述(Overview)下面是运行时权限机制的关键部分的简要概述
-
-声明权限(Declaring Permissions):
-应用需要在man">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="[TOC] Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。 支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。 概述(Overview)下面是运行时权限机制的关键部分的简要概述  声明权限(Declaring Permissions): 应用需要在man">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-07T15:44:38.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android M Permission 详解">
-<meta name="twitter:description" content="[TOC]
-Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。
-支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。
-概述(Overview)下面是运行时权限机制的关键部分的简要概述
-
-声明权限(Declaring Permissions):
-应用需要在man">
+<meta name="twitter:description" content="[TOC] Android M新增运行时申请权限的机制， 如果是在M上的应用，不需要在安装时申请权限，而是在应用运行时动态的申请权限，系统会弹出一个对话框向用户请求权限。 支持动态申请权限机制的应用安装在之前的版本，依然采用过去的权限机制：安装时申请权限。 概述(Overview)下面是运行时权限机制的关键部分的简要概述  声明权限(Declaring Permissions): 应用需要在man">
 
 
 
@@ -147,7 +131,6 @@ Android M新增运行时申请权限的机制， 如果是在M上的应用，不
 
   <title> Android M Permission 详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -657,6 +640,9 @@ Android M新增运行时申请权限的机制， 如果是在M上的应用，不
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -843,6 +829,8 @@ Android M新增运行时申请权限的机制， 如果是在M上的应用，不
   
 
 
+  
+
 
 
   
@@ -862,6 +850,9 @@ Android M新增运行时申请权限的机制， 如果是在M上的应用，不
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

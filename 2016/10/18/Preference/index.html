@@ -77,26 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPref">
+<meta name="description" content="概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPreference">
+<meta name="keywords" content="Android,Preference">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Preference 详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2016/10/18/Preference/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPref">
-<meta property="og:updated_time" content="2017-08-07T15:45:17.130Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPreference">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:24.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Preference 详解">
-<meta name="twitter:description" content="[TOC]
-概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPref">
+<meta name="twitter:description" content="概述preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPreference">
 
 
 
@@ -132,7 +131,6 @@
 
   <title> Android Preference 详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -370,8 +368,7 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。<br>为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPreference,CheckBoxPreference,RingtonePreference</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>preference非常适合于参数设置功能。实际上，它也确实是干这个的，我们通过使用preference可以迅速的将某些值保存进xml文件中，然后我们可以读取这些设置信息进行相应的操作。<br>为了简化与preference相关的应用开发，android为我们提供了一系列的api来帮助我们。主要有 PreferenceActivity，ListPreference,EditTextPreference,CheckBoxPreference,RingtonePreference</p>
 <h2 id="CheckBoxPreference"><a href="#CheckBoxPreference" class="headerlink" title="CheckBoxPreference"></a>CheckBoxPreference</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private static final String BUTTON_AUTOMATIC_RECORDING = &quot;automatic_recording_key&quot;;</div><div class="line"></div><div class="line">mAutomaticRecording = (CheckBoxPreference) findPreference(BUTTON_AUTOMATIC_RECORDING);</div><div class="line">   if (mAutomaticRecording != null) &#123;</div><div class="line">       mAutomaticRecording.setOnPreferenceChangeListener(this);</div><div class="line">   &#125;</div><div class="line">   /**</div><div class="line">    * Supports onPreferenceChangeListener to look for preference changes.</div><div class="line">    *</div><div class="line">    * @param preference The preference to be changed</div><div class="line">    * @param objValue The value of the selection, NOT its localized display value.</div><div class="line">    */</div><div class="line">   @Override</div><div class="line">   public boolean onPreferenceChange(Preference preference, Object objValue) &#123;</div><div class="line">   	// if (preference == mVibrateWhenRinging) &#123; // 在这里加额外的判断去处理数据	</div><div class="line">       return true; // true to update the state of the preference with the new value.</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//xml:</div><div class="line">    &lt;PreferenceCategory</div><div class="line">        android:key=&quot;dialer_general_call_recording_settings_category_key&quot;</div><div class="line">        android:title=&quot;@string/call_recording_setting_title&quot;</div><div class="line">        android:persistent=&quot;false&quot; &gt; </div><div class="line"></div><div class="line">        &lt;CheckBoxPreference</div><div class="line">                android:key=&quot;automatic_recording_key&quot;</div><div class="line">                android:title=&quot;@string/automatic_recording_title&quot;</div><div class="line">                android:persistent=&quot;true&quot; </div><div class="line">                android:defaultValue=&quot;false&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/PreferenceCategory&gt;</div></pre></td></tr></table></figure>
 <ul>
@@ -516,6 +513,9 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -702,6 +702,8 @@
   
 
 
+  
+
 
 
   
@@ -721,6 +723,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

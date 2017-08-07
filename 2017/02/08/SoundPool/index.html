@@ -77,32 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-概述SoundPool类管理和播放用于应用程序的音频资源。
-SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。
-除了低延迟回放，SoundPool还可以管理一次呈现的音频流的">
+<meta name="description" content="概述SoundPool类管理和播放用于应用程序的音频资源。 SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。 除了低延迟回放，SoundPool还可以管理一次呈现的音频流的数量。当构造">
+<meta name="keywords" content="Android,SoundPool">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android SoundPool使用详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2017/02/08/SoundPool/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-概述SoundPool类管理和播放用于应用程序的音频资源。
-SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。
-除了低延迟回放，SoundPool还可以管理一次呈现的音频流的">
-<meta property="og:updated_time" content="2017-08-07T15:47:14.167Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="概述SoundPool类管理和播放用于应用程序的音频资源。 SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。 除了低延迟回放，SoundPool还可以管理一次呈现的音频流的数量。当构造">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:26:54.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android SoundPool使用详解">
-<meta name="twitter:description" content="[TOC]
-概述SoundPool类管理和播放用于应用程序的音频资源。
-SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。
-除了低延迟回放，SoundPool还可以管理一次呈现的音频流的">
+<meta name="twitter:description" content="概述SoundPool类管理和播放用于应用程序的音频资源。 SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。 除了低延迟回放，SoundPool还可以管理一次呈现的音频流的数量。当构造">
 
 
 
@@ -138,7 +131,6 @@ SoundPool是一个示例集合，可以从APK或文件系统中的文件中加�
 
   <title> Android SoundPool使用详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -376,8 +368,7 @@ SoundPool是一个示例集合，可以从APK或文件系统中的文件中加�
       
 
       
-        <p>[TOC]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SoundPool类管理和播放用于应用程序的音频资源。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>SoundPool类管理和播放用于应用程序的音频资源。</p>
 <p>SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。<br>这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受CPU负载和解压的延迟。</p>
 <p>除了低延迟回放，SoundPool还可以管理一次呈现的音频流的数量。<br>当构造SoundPool对象时，maxStreams参数可以设置从这个单一的声音池中可以播放的最大的流数。<br>SoundPool跟踪活动流的数量。如果超过了最大的流，SoundPool将自动停止先前播放的基于优先级的流，然后在此优先级按时间先后进行。<br>限制最大数量的流有助于限制CPU的负载，降低音频混合将影响可视化或UI性能的可能性。</p>
 <p>声音可以通过设置非零循环值来循环。-1会导致声音永远循环。<br>在这种情况下，应用程序必须显式调用stop()函数来停止声音。<br>任何其他非零值都会导致声音重复指定的次数，例如，值3使声音总共播放4次。</p>
@@ -971,6 +962,9 @@ public void onCreate(Bundle icicle)
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -1157,6 +1151,8 @@ public void onCreate(Bundle icicle)
   
 
 
+  
+
 
 
   
@@ -1176,6 +1172,9 @@ public void onCreate(Bundle icicle)
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

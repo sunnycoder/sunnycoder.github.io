@@ -77,29 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征：
-1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存">
+<meta name="description" content="概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征： 1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存储器会高很多">
+<meta name="keywords" content="Android,Parcel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中的Parcel机制">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2016/04/08/Android中的Parcel机制/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征：
-1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存">
-<meta property="og:updated_time" content="2017-08-07T15:41:05.213Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征： 1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存储器会高很多">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:36.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中的Parcel机制">
-<meta name="twitter:description" content="[TOC]
-概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征：
-1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存">
+<meta name="twitter:description" content="概述在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。        Android中序列化有以下几个特征： 1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存储器会高很多">
 
 
 
@@ -135,7 +131,6 @@
 
   <title> Android中的Parcel机制 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -373,8 +368,7 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，<br>        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。<br>        Android中序列化有以下几个特征：</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android系统中，定位为针对内存受限的设备，因此对性能要求更高，另外系统中采用了新的IPC（进程间通信）机制，必然要求使用性能更出色的对象传输方式。在这样的环境下，<br>        Parcel被设计出来，其定位就是轻量级的高效的对象序列化和反序列化机制。<br>        Android中序列化有以下几个特征：</p>
 <pre><code>1. 整个读写全是在内存中进行，所以效率比JAVA序列化中使用外部存储器会高很多；
 2. 读写时是4字节对齐的
 3. 如果预分配的空间不够时，会一次多分配50%；
@@ -558,6 +552,9 @@ public class ParcelableDate implements Parcelable { //声明实现接口Parcelab
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -744,6 +741,8 @@ public class ParcelableDate implements Parcelable { //声明实现接口Parcelab
   
 
 
+  
+
 
 
   
@@ -763,6 +762,9 @@ public class ParcelableDate implements Parcelable { //声明实现接口Parcelab
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

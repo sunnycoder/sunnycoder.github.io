@@ -77,26 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
+<meta name="description" content="[TOC] logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
+<meta name="keywords" content="Android,logcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android logcat详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2016/05/18/logcat/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="[TOC] logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-07T15:42:20.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android logcat详解">
-<meta name="twitter:description" content="[TOC]
-logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
+<meta name="twitter:description" content="[TOC] logcat123456789101112131415161718192021222324252627282930313233343536371.logcat -c 清除已有log信息2.logcat -b main 显示主缓冲区的log  logcat -b radio 显示无线缓冲区的log  logcat -b events 显示事件缓冲区的log3.logcat -f [fil">
 
 
 
@@ -132,7 +131,6 @@ logcat123456789101112131415161718192021222324252627282930313233343536371.logcat 
 
   <title> Android logcat详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -371,7 +369,7 @@ logcat123456789101112131415161718192021222324252627282930313233343536371.logcat 
 
       
         <p>[TOC]</p>
-<h2 id="logcat"><a href="#logcat" class="headerlink" title="logcat"></a>logcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">1.logcat -c 清除已有<span class="built_in">log</span>信息</div><div class="line"></div><div class="line">2.logcat -b main 显示主缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">  logcat -b radio 显示无线缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">  logcat -b events 显示事件缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">3.logcat <span class="_">-f</span> [filename] 将<span class="built_in">log</span>保存到指定的文件中，例如 logcat -b radio <span class="_">-f</span> /data/radio.log</div><div class="line"></div><div class="line">4.logcat -v 设置logcat输出的格式</div><div class="line"></div><div class="line">　　主要有7种:</div><div class="line"></div><div class="line">　　1&gt; brief — Display priority/tag and PID of originating process (the default format).</div><div class="line"></div><div class="line">　　2&gt; process — Display PID only.</div><div class="line"></div><div class="line">　　3&gt; tag — Display the priority/tag only.</div><div class="line"></div><div class="line">　　4&gt; thread — Display process:thread and priority/tag only.</div><div class="line"></div><div class="line">　　5&gt; raw — Display the raw <span class="built_in">log</span> message, with no other metadata fields.</div><div class="line"></div><div class="line">　　6&gt; time — Display the date, invocation time, priority/tag, and PID of the originating process.</div><div class="line"></div><div class="line">　　7&gt; long — Display all metadata fields and separate messages with a blank lines.</div><div class="line"></div><div class="line">　　比较常用的是显示时间:logcat -v time &amp;</div><div class="line"></div><div class="line">　　5.logcat -g 查看缓冲区的大小</div><div class="line"></div><div class="line">　　	* logcat -g main</div><div class="line"></div><div class="line">　　	* logcat -g radio</div><div class="line"></div><div class="line">　　	* logcat -g events</div></pre></td></tr></table></figure>
+<h2 id="logcat"><a href="#logcat" class="headerlink" title="logcat"></a>logcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">1.logcat -c 清除已有<span class="built_in">log</span>信息</div><div class="line"></div><div class="line">2.logcat -b main 显示主缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">  logcat -b radio 显示无线缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">  logcat -b events 显示事件缓冲区的<span class="built_in">log</span></div><div class="line"></div><div class="line">3.logcat -f [filename] 将<span class="built_in">log</span>保存到指定的文件中，例如 logcat -b radio -f /data/radio.log</div><div class="line"></div><div class="line">4.logcat -v 设置logcat输出的格式</div><div class="line"></div><div class="line">　　主要有7种:</div><div class="line"></div><div class="line">　　1&gt; brief — Display priority/tag and PID of originating process (the default format).</div><div class="line"></div><div class="line">　　2&gt; process — Display PID only.</div><div class="line"></div><div class="line">　　3&gt; tag — Display the priority/tag only.</div><div class="line"></div><div class="line">　　4&gt; thread — Display process:thread and priority/tag only.</div><div class="line"></div><div class="line">　　5&gt; raw — Display the raw <span class="built_in">log</span> message, with no other metadata fields.</div><div class="line"></div><div class="line">　　6&gt; time — Display the date, invocation time, priority/tag, and PID of the originating process.</div><div class="line"></div><div class="line">　　7&gt; long — Display all metadata fields and separate messages with a blank lines.</div><div class="line"></div><div class="line">　　比较常用的是显示时间:logcat -v time &amp;</div><div class="line"></div><div class="line">　　5.logcat -g 查看缓冲区的大小</div><div class="line"></div><div class="line">　　	* logcat -g main</div><div class="line"></div><div class="line">　　	* logcat -g radio</div><div class="line"></div><div class="line">　　	* logcat -g events</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -489,6 +487,9 @@ logcat123456789101112131415161718192021222324252627282930313233343536371.logcat 
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -675,6 +676,8 @@ logcat123456789101112131415161718192021222324252627282930313233343536371.logcat 
   
 
 
+  
+
 
 
   
@@ -694,6 +697,9 @@ logcat123456789101112131415161718192021222324252627282930313233343536371.logcat 
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

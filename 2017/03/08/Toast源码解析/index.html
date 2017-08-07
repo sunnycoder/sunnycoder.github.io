@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Toast,Android," />
+  <meta name="keywords" content="Android,Toast," />
 
 
 
@@ -77,29 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java
-Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.">
+<meta name="description" content="Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.LENGTH">
+<meta name="keywords" content="Android,Toast">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Toast源码解析">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2017/03/08/Toast源码解析/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java
-Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.">
-<meta property="og:updated_time" content="2017-08-07T15:48:32.789Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.LENGTH">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:02.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Toast源码解析">
-<meta name="twitter:description" content="[TOC]
-Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java
-Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.">
+<meta name="twitter:description" content="Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;quot;Toast源码解析&amp;quot;,Toast.LENGTH">
 
 
 
@@ -135,7 +131,6 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
 
   <title> Android Toast源码解析 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -373,8 +368,7 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
       
 
       
-        <p>[TOC]</p>
-<h2 id="Toast简介"><a href="#Toast简介" class="headerlink" title="Toast简介"></a>Toast简介</h2><p>Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。<br>Toast源码位于：<a href="https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java" target="_blank" rel="external">frameworks\base\core\java\android\widget\Toast.java</a></p>
+        <h2 id="Toast简介"><a href="#Toast简介" class="headerlink" title="Toast简介"></a>Toast简介</h2><p>Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。<br>Toast源码位于：<a href="https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java" target="_blank" rel="external">frameworks\base\core\java\android\widget\Toast.java</a></p>
 <h2 id="Toast使用"><a href="#Toast使用" class="headerlink" title="Toast使用"></a>Toast使用</h2><p>Toast使用就一行代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Toast.makeText(ToastActivity.this,&quot;Toast源码解析&quot;,Toast.LENGTH_LONG).show();</div></pre></td></tr></table></figure></p>
 <p>Toast 提供了setView方法，可以自定义View：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Toast toast=new Toast(ToastActivity.this);</div><div class="line">View view=View.inflate(ToastActivity.this,R.layout.toast_view,null);</div><div class="line">toast.setView(view);</div><div class="line">toast.setGravity(Gravity.CENTER,0,0);</div><div class="line">toast.show();</div></pre></td></tr></table></figure></p>
 <p>toast_view.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">    &lt;ImageView</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:background=&quot;@mipmap/ic_launcher&quot; /&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
@@ -421,9 +415,9 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
       
         <div class="post-tags">
           
-            <a href="/tags/Toast/" rel="tag"># Toast</a>
-          
             <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Toast/" rel="tag"># Toast</a>
           
         </div>
       
@@ -516,6 +510,9 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -702,6 +699,8 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
   
 
 
+  
+
 
 
   
@@ -721,6 +720,9 @@ Toast使用Toast使用就一行代码：1Toast.makeText(ToastActivity.this,&amp;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

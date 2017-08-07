@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -86,12 +86,13 @@
 
 <meta name="description" content="记录总结学习编程中的点滴">
 <meta property="og:type" content="website">
-<meta property="og:title" content="dhyuestc's Blog">
+<meta property="og:title" content="dhyuestc&#39;s Blog">
 <meta property="og:url" content="http://weibo.com/sunnydhy/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
 <meta property="og:description" content="记录总结学习编程中的点滴">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dhyuestc's Blog">
+<meta name="twitter:title" content="dhyuestc&#39;s Blog">
 <meta name="twitter:description" content="记录总结学习编程中的点滴">
 
 
@@ -128,7 +129,6 @@
 
   <title> dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -373,9 +373,8 @@
       
         
           
-          [TOC]
-概述Android系统本身有很多的资源，包括各种各样的字符串、图片、动画、样式和布局等等，这些都可以在应用程序中直接使用。这样做的好处很多，既可以减少内存的使用，又可以减少部分工作量，也可以缩减程序安装包的大小。
-Android各种资源123R.anim、R.animator、R.arr
+          概述Android系统本身有很多的资源，包括各种各样的字符串、图片、动画、样式和布局等等，这些都可以在应用程序中直接使用。这样做的好处很多，既可以减少内存的使用，又可以减少部分工作量，也可以缩减程序安装包的大小。
+Android各种资源123R.anim、R.animator、R.array、R.a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -532,8 +531,7 @@ Android各种资源123R.anim、R.animator、R.arr
       
         
           
-          [TOC]
-SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下
+          SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语言，即所有的关系型数据库都会支持它，只不过每种数据库对SQL语言的支持与标准存在着细微的不同。我们无须关心其它数据库对SQL语言的支持情况，这里我们只要把重点放在SQLite上就可以了。下面我将使用模
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -690,9 +688,8 @@ SQLite命令SQL(Structured Query Language)是一种标准的数据库查询语�
       
         
           
-          [TOC]
-Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java
-Toast使用Toast使用就一行代码：1Toast.makeTe
+          Toast简介Toast是一种提供给用户简洁信息的视图，该视图已浮于应用程序之上的形式呈现给用户。Toast源码位于：frameworks\base\core\java\android\widget\Toast.java
+Toast使用Toast使用就一行代码：1Toast.makeText(Toa
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -849,10 +846,9 @@ Toast使用Toast使用就一行代码：1Toast.makeTe
       
         
           
-          [TOC]
-概述Android Asset Packaging Tool.
+          概述Android Asset Packaging Tool.
 这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。
-但是因为iwhale2的烧机不稳定，我编译了好几个
+但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1009,9 +1005,8 @@ Toast使用Toast使用就一行代码：1Toast.makeTe
       
         
           
-          [TOC]
-概述SoundPool类管理和播放用于应用程序的音频资源。
-SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在
+          概述SoundPool类管理和播放用于应用程序的音频资源。
+SoundPool是一个示例集合，可以从APK或文件系统中的文件中加载到内存中。SoundPool库使用MediaPlayer服务将音频解码为原始的16位PCM mono或立体声流。这使得应用程序可以使用压缩流进行传输，而不必在回放期间承受
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1075,6 +1070,9 @@ SoundPool是一个示例集合，可以从APK或文件系统中的文件中加�
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -1236,6 +1234,8 @@ SoundPool是一个示例集合，可以从APK或文件系统中的文件中加�
   
 
 
+  
+
 
 
   
@@ -1255,6 +1255,9 @@ SoundPool是一个示例集合，可以从APK或文件系统中的文件中加�
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

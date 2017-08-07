@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -86,12 +86,13 @@
 
 <meta name="description" content="记录总结学习编程中的点滴">
 <meta property="og:type" content="website">
-<meta property="og:title" content="dhyuestc's Blog">
+<meta property="og:title" content="dhyuestc&#39;s Blog">
 <meta property="og:url" content="http://weibo.com/sunnydhy/page/2/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
 <meta property="og:description" content="记录总结学习编程中的点滴">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dhyuestc's Blog">
+<meta name="twitter:title" content="dhyuestc&#39;s Blog">
 <meta name="twitter:description" content="记录总结学习编程中的点滴">
 
 
@@ -128,7 +129,6 @@
 
   <title> dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -374,7 +374,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/uploads/markdown.jpg" rel="gallery_cj62bhxcl0011rcphp67kfamq"
+                 href="/uploads/markdown.jpg" rel="gallery_cj62fh8fq001vgsph4p8thaqp"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/uploads/markdown.jpg" itemprop="contentUrl"/>
               </a>
@@ -388,9 +388,9 @@
 
       
         
-          <p><strong>NOTE:</strong> This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
-<p><strong>声明：</strong> 这份文档派生(fork)于<a href="http://markdown.tw/">繁体中文版</a>，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里<a href="http://gitcafe.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">查看它的源文件</a>。「繁体中文版的原始文件可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md">查看这里</a> 。」–By @<a href="http://twitter.com/riku">riku</a></p>
-<p><strong>注：</strong> 本项目托管于 <a href="http://gitcafe.com/riku/Markdown-Syntax-CN/">GitCafe</a>上，请通过”派生”和”合并请求”来帮忙改进本项目。</p>
+          <p><strong>NOTE:</strong> This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown: Syntax</a>.</p>
+<p><strong>声明：</strong> 这份文档派生(fork)于<a href="http://markdown.tw/" target="_blank" rel="external">繁体中文版</a>，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里<a href="http://gitcafe.com/riku/Markdown-Syntax-CN/blob/master/syntax.md" target="_blank" rel="external">查看它的源文件</a>。「繁体中文版的原始文件可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md" target="_blank" rel="external">查看这里</a> 。」–By @<a href="http://twitter.com/riku" target="_blank" rel="external">riku</a></p>
+<p><strong>注：</strong> 本项目托管于 <a href="http://gitcafe.com/riku/Markdown-Syntax-CN/" target="_blank" rel="external">GitCafe</a>上，请通过”派生”和”合并请求”来帮忙改进本项目。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/23/markdown-入门指南/#more" rel="contents">
@@ -547,7 +547,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/uploads/hexo.gif" rel="gallery_cj62bhxcg000wrcph7fef3zw6"
+                 href="/uploads/hexo.gif" rel="gallery_cj62fh8fl001ngsphv7oakm4e"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/uploads/hexo.gif" itemprop="contentUrl"/>
               </a>
@@ -854,13 +854,12 @@
       
         
           
-          [TOC]
-概述
+          概述
 Store private primitive data in key-value pairs.
 
 
 SharedPreferences是一种轻量级的数据存储方式。
-用键值对的方式把简单数据类型（boolean、int、float、long和String）存储在应用程序的私有目录下
+用键值对的方式把简单数据类型（boolean、int、float、long和String）存储在应用程序的私有目录下(data/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1017,9 +1016,8 @@ SharedPreferences是一种轻量级的数据存储方式。
       
         
           
-          [TOC]
-概述这其实是观察者模式的一种实现形式
-先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique
+          概述这其实是观察者模式的一种实现形式
+先明确两个身份 1.RefistrantList 通知者 2.Registrant 观察者，这是一个一对多的关系，在有事件更新时，凡是在名单上登记过的对象，都会收到通知。RegistrantList通知者支持对通知者的增加（add/addUnique）删除（re
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1083,6 +1081,9 @@ SharedPreferences是一种轻量级的数据存储方式。
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -1244,6 +1245,8 @@ SharedPreferences是一种轻量级的数据存储方式。
   
 
 
+  
+
 
 
   
@@ -1263,6 +1266,9 @@ SharedPreferences是一种轻量级的数据存储方式。
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

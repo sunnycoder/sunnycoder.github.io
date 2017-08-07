@@ -77,35 +77,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="[TOC]
-概述Android Asset Packaging Tool.
-这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。
-但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。
-在肖韵涛的指点下，找到了一个简单的办法：通过verif">
+<meta name="description" content="概述Android Asset Packaging Tool. 这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。 但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。 在肖韵涛的指点下，找到了一个简单的办法：通过verify生成的im">
+<meta name="keywords" content="Android,AAPT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AAPT详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2017/02/08/aapt/index.html">
-<meta property="og:site_name" content="dhyuestc's Blog">
-<meta property="og:description" content="[TOC]
-概述Android Asset Packaging Tool.
-这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。
-但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。
-在肖韵涛的指点下，找到了一个简单的办法：通过verif">
-<meta property="og:updated_time" content="2017-08-07T15:38:41.458Z">
+<meta property="og:site_name" content="dhyuestc&#39;s Blog">
+<meta property="og:description" content="概述Android Asset Packaging Tool. 这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。 但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。 在肖韵涛的指点下，找到了一个简单的办法：通过verify生成的im">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-07T17:27:44.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AAPT详解">
-<meta name="twitter:description" content="[TOC]
-概述Android Asset Packaging Tool.
-这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。
-但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。
-在肖韵涛的指点下，找到了一个简单的办法：通过verif">
+<meta name="twitter:description" content="概述Android Asset Packaging Tool. 这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。 但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。 在肖韵涛的指点下，找到了一个简单的办法：通过verify生成的im">
 
 
 
@@ -141,7 +131,6 @@
 
   <title> AAPT详解 | dhyuestc's Blog </title>
 </head>
-
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
@@ -379,8 +368,7 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Android Asset Packaging Tool.</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Android Asset Packaging Tool.</p>
 <p>这两天处理的两个bug,都需要在device/sprd目录下配置不同board的资源文件定义。 这种修改后，一般需要自己verify一个版本，然后烧写版本确认修改是否生效。</p>
 <p>但是因为iwhale2的烧机不稳定，我编译了好几个版本都不生效，遂放弃这种方式，打算另辟蹊径。</p>
 <p>在肖韵涛的指点下，找到了一个简单的办法：通过verify生成的image进行解压，然后使用aapt命令查看资源文件的定义：</p>
@@ -524,6 +512,9 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    <div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=340 height=86 src="//music.163.com/outchain/player?type=2&id=418602088&auto=0&height=66"></iframe>
+</div>
     <div class="sidebar-inner">
 
       
@@ -710,6 +701,8 @@
   
 
 
+  
+
 
 
   
@@ -729,6 +722,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
