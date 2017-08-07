@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Monkey," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon2.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+Monkey命令行可用的全部选项常规
+–help
+列出简单的用法。
+-v
+命令行的每一个-v将增加反馈信息的级别。
+Level 0(缺省值)除启动提示、测试完成和最终结果之外，提供较少信息。
+Level 1提供较为详细的测试信息，如逐个发送到Activity的事件。
+Level 2提供更加详细的设置信息，如测试中被选中的或未被选中的Activity。
+日志级别 Level 0
+*示例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Monkey详解">
+<meta property="og:url" content="http://weibo.com/sunnydhy/2016/07/18/Monkey/index.html">
+<meta property="og:site_name" content="dhyuestc's Blog">
+<meta property="og:description" content="[TOC]
+Monkey命令行可用的全部选项常规
+–help
+列出简单的用法。
+-v
+命令行的每一个-v将增加反馈信息的级别。
+Level 0(缺省值)除启动提示、测试完成和最终结果之外，提供较少信息。
+Level 1提供较为详细的测试信息，如逐个发送到Activity的事件。
+Level 2提供更加详细的设置信息，如测试中被选中的或未被选中的Activity。
+日志级别 Level 0
+*示例">
+<meta property="og:updated_time" content="2017-08-07T15:43:42.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Monkey详解">
+<meta name="twitter:description" content="[TOC]
+Monkey命令行可用的全部选项常规
+–help
+列出简单的用法。
+-v
+命令行的每一个-v将增加反馈信息的级别。
+Level 0(缺省值)除启动提示、测试完成和最终结果之外，提供较少信息。
+Level 1提供较为详细的测试信息，如逐个发送到Activity的事件。
+Level 2提供更加详细的设置信息，如测试中被选中的或未被选中的Activity。
+日志级别 Level 0
+*示例">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://weibo.com/sunnydhy/2016/07/18/Monkey/"/>
+
+
+
+
+
+  <title> Android Monkey详解 | dhyuestc's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">dhyuestc's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Coding && Debugging</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://weibo.com/sunnydhy/2016/07/18/Monkey/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="dhyuestc">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/lufei.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="dhyuestc's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="dhyuestc's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Monkey详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-18T21:50:07+08:00">
+                2016-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/18/Monkey/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/18/Monkey/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="Monkey命令行可用的全部选项"><a href="#Monkey命令行可用的全部选项" class="headerlink" title="Monkey命令行可用的全部选项"></a>Monkey命令行可用的全部选项</h2><p>常规</p>
+<p>–help</p>
+<p>列出简单的用法。</p>
+<p>-v</p>
+<p>命令行的每一个-v将增加反馈信息的级别。</p>
+<p>Level 0(缺省值)除启动提示、测试完成和最终结果之外，提供较少信息。</p>
+<p>Level 1提供较为详细的测试信息，如逐个发送到Activity的事件。</p>
+<p>Level 2提供更加详细的设置信息，如测试中被选中的或未被选中的Activity。</p>
+<p>日志级别 Level 0</p>
+<p>*示例 adbshell monkey -p com.htc.Weather –v 100</p>
+<p>说明缺省值，仅提供启动提示、测试完成和最终结果等少量信息</p>
+<p>日志级别 Level 1</p>
+<p>*示例 adbshell monkey -p com.htc.Weather –v -v 100</p>
+<p>说明 提供较为详细的日志，包括每个发送到Activity的事件信息</p>
+<p>日志级别 Level 2</p>
+<p>*示例 adbshell monkey -p com.htc.Weather –v -v –v 100</p>
+<p>说明 最详细的日志，包括了测试中选中/未选中的Activity信息</p>
+<p>事件</p>
+<p>-s <seed></seed></p>
+<p>用于指定伪随机数生成器的seed值，如果seed相同，则两次Monkey测试所产生的事件序列也相同的。</p>
+<ul>
+<li>示例：</li>
+</ul>
+<p>Monkey测试1：adb shellmonkey -p com.htc.Weather –s 10 100</p>
+<p>Monkey 测试2：adb shellmonkey -p com.htc.Weather –s 10 100</p>
+<p>两次测试的效果是相同的，因为模拟的用户操作序列（每次操作按照一定的先后顺序所组成的一系列操作，即一个序列）是一样的。操作序列虽 然是随机生成的，但是只要我们指定了相同的Seed值，就可以保证两次测试产生的随机操作序列是完全相同的，所以这个操作序列伪随机的；</p>
+<p>–throttle<milliseconds></milliseconds></p>
+<p>在事件之间插入固定延迟。通过这个选项可以减缓Monkey的执行速度。如果不指定该选项，Monkey将不会被延迟，事件将尽可能快地被产成。</p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –throttle 3000 100</li>
+</ul>
+<p>–pct-touch<percent></percent></p>
+<p>调整触摸事件的百分比(触摸事件是一个down-up事件，它发生在屏幕上的某单一位置)。</p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-touch 10 1000</li>
+</ul>
+<p>–pct-motion<percent><br>调整动作事件的百分比(动作事件由屏幕上某处的一个down事件、一系列的伪随机事件和一个up事件组成)。</percent></p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-motion 20 1000</li>
+</ul>
+<p>–pct-trackball<percent></percent></p>
+<p>调整轨迹事件的百分比(轨迹事件由一个或几个随机的移动组成，有时还伴随有点击)。</p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-trackball 30 1000</li>
+</ul>
+<p>–pct-nav<percent></percent></p>
+<p>调整“基本”导航事件的百分比(导航事件由来自方向输入设备的up/down/left/right组成)。</p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-nav 40 1000</li>
+</ul>
+<p>–pct-majornav<percent></percent></p>
+<p>调整“主要”导航事件的百分比(这些导航事件通常引发图形界面中的动作，如：5-way键盘的中间按键、回退按键、菜单按键)</p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-majornav 50 1000</li>
+</ul>
+<p>–pct-syskeys<percent><br>调整“系统”按键事件的百分比(这些按键通常被保留，由系统使用，如Home、Back、Start Call、End Call及音量控制键)。</percent></p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-syskeys 60 1000</li>
+</ul>
+<p>–pct-appswitch<percent><br>调整启动Activity的百分比。在随机间隔里，Monkey将执行一个startActivity()调用，作为最大程度覆盖包中全部Activity的一种方法。</percent></p>
+<ul>
+<li>示例：adb shellmonkey -p com.htc.Weather –pct-appswitch 70 1000</li>
+</ul>
+<p>–pct-anyevent<percent><br>调整其它类型事件的百分比。它包罗了所有其它类型的事件，如：按键、其它不常用的设备按钮、等等。* 示例：adb shell monkey -p com.htc.Weather</percent></p>
+<p>–pct -anyevent 1001000* 指定多个类型事件的百分比：</p>
+<p>adb shell monkey -pcom.htc.Weather –pct-anyevent 50 –pct-appswitch 50 1000<br>注意：各事件类型的百分比总数不能超过100%；</p>
+<p>约束限制</p>
+<p>-p<allowed-package-name></allowed-package-name></p>
+<p>如果用此参数指定了一个或几个包，Monkey将只允许系统启动这些包里的Activity。如果你的应用程序还需要访问其它包里的Activity(如选择取一个联系人)，那些包也需要在此同时指定。如果不指定任何包，Monkey将允许系统启动全部包里的Activity。要指定多个包，需要使用多个 -p选项，每个-p选项只能用于一个包。</p>
+<ul>
+<li>指定一个包： adb shell monkey -p com.htc.Weather 100</li>
+</ul>
+<p>说明：com.htc.Weather为包名，100是事件计数（即让Monkey程序模拟100次随机用户事件）。</p>
+<ul>
+<li><p>指定多个包：adb shell monkey -p com.htc.Weather –pcom.htc.pdfreader -p com.htc.photo.widgets 100</p>
+</li>
+<li><p>不指定包：adb shell monkey 100</p>
+</li>
+</ul>
+<p>说明：Monkey随机启动APP并发送100个随机事件。</p>
+<ul>
+<li>要查看设备中所有的包，在CMD窗口中执行以下命令：</li>
+</ul>
+<blockquote>
+<p>adb shell</p>
+</blockquote>
+<p>#cd data/data</p>
+<p>#ls</p>
+<p>-c<main-category></main-category></p>
+<p>如果用此参数指定了一个或几个类别，Monkey将只允许系统启动被这些类别中的某个类别列出的Activity。如果不指定任何类别，Monkey将选 择下列类别中列出的Activity： Intent.CATEGORY_LAUNCHER或Intent.CATEGORY_MONKEY。要指定多个类别，需要使用多个-c选项，每个-c选 项只能用于一个类别。</p>
+<p>调试<br>–dbg-no-events<br>设置此选项，Monkey将执行初始启动，进入到一个测试Activity，然后不会再进一步生成事件。为了得到最佳结果，把它与-v、一个或几个包约 束、以及一个保持Monkey运行30秒或更长时间的非零值联合起来，从而提供一个环境，可以监视应用程序所调用的包之间的转换。</p>
+<p>–hprof<br>设置此选项，将在Monkey事件序列之前和之后立即生成profiling报告。这将会在data/misc中生成大文件(~5Mb)，所以要小心使用它。</p>
+<p>–ignore-crashes<br>通常，当应用程序崩溃或发生任何失控异常时，Monkey将停止运行。如果设置此选项，Monkey将继续向系统发送事件，直到计数完成。</p>
+<ul>
+<li>示例1：adb shellmonkey -p com.htc.Weather –ignore-crashes 1000<br>测试过程中即使Weather程序崩溃，Monkey依然会继续发送事件直到事件数目达到1000为止；</li>
+<li>示例2：adb shell monkey -p com.htc.Weather 1000<br>测试过程中，如果Weather程序崩溃，Monkey将会停止运行。</li>
+</ul>
+<p>–ignore-timeouts<br>通常，当应用程序发生任何超时错误(如“Application Not Responding”对话框)时，Monkey将停止运行。如果设置此选项，Monkey将继续向系统发送事件，直到计数完成。</p>
+<p>–ignore-security-exceptions<br>通常，当应用程序发生许可错误(如启动一个需要某些许可的Activity)时，Monkey将停止运行。如果设置了此选项，Monkey将继续向系统发送事件，直到计数完成。</p>
+<p>–kill-process-after-error<br>通常，当Monkey由于一个错误而停止时，出错的应用程序将继续处于运行状态。当设置了此选项时，将会通知系统停止发生错误的进程。注意，正常的(成功的)结束，并没有停止启动的进程，设备只是在结束事件之后，简单地保持在最后的状态。</p>
+<p>–monitor-native-crashes<br>监视并报告Android系统中本地代码的崩溃事件。如果设置了–kill-process-after-error，系统将停止运行。</p>
+<p>–wait-dbg<br>停止执行中的Monkey，直到有调试器和它相连接。</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<li><a href="http://www.cnblogs.com/xiwix/archive/2012/04/15/2450976.html" target="_blank" rel="external">http://www.cnblogs.com/xiwix/archive/2012/04/15/2450976.html</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Monkey/" rel="tag"># Monkey</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/18/LruCache源码解析/" rel="next" title="Android LruCache 源码解析">
+                <i class="fa fa-chevron-left"></i> Android LruCache 源码解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/18/Notification/" rel="prev" title="Android Notifications 详解">
+                Android Notifications 详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/lufei.jpg"
+               alt="dhyuestc" />
+          <p class="site-author-name" itemprop="name">dhyuestc</p>
+          <p class="site-description motion-element" itemprop="description">记录总结学习编程中的点滴</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sunnycoder" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/sunnydhy" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/dhyuestc" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monkey命令行可用的全部选项"><span class="nav-number">1.</span> <span class="nav-text">Monkey命令行可用的全部选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">1.1.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dhyuestc</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<div class="theme-info">
+    <a href="http://weibo.com/ " target="_blank" title="weibo">Weibo</a>
+    <a href="http://weibo.com/sunnydhy" target="_blank" title="github">Github</a>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'dhyuestc';
+      var disqus_identifier = '2016/07/18/Monkey/';
+
+      var disqus_title = "Android Monkey详解";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <a href="https://github.com/sunnycoder"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+</body>
+</html>
