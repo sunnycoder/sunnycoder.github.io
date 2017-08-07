@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="dhyuestc&#39;s Blog">
 <meta property="og:description" content="概述Android系统本身有很多的资源，包括各种各样的字符串、图片、动画、样式和布局等等，这些都可以在应用程序中直接使用。这样做的好处很多，既可以减少内存的使用，又可以减少部分工作量，也可以缩减程序安装包的大小。 Android各种资源123R.anim、R.animator、R.array、R.attr、R.bool、R.color、R.dimen、R.drawable、R.fractionR.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-07T19:12:14.808Z">
+<meta property="og:updated_time" content="2017-08-07T19:24:16.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用android系统自带资源">
 <meta name="twitter:description" content="概述Android系统本身有很多的资源，包括各种各样的字符串、图片、动画、样式和布局等等，这些都可以在应用程序中直接使用。这样做的好处很多，既可以减少内存的使用，又可以减少部分工作量，也可以缩减程序安装包的大小。 Android各种资源123R.anim、R.animator、R.array、R.attr、R.bool、R.color、R.dimen、R.drawable、R.fractionR.">
@@ -430,47 +430,16 @@
 <p>如果在@后面使用“+”，表示当修改完某个布局文件并保存后，系统会自动在R.java文件中生成相应的int类型变量。变量名就是“/”后面的值，例如，@+id/xyz会在R.java文件中生成int xyz = value，其中value是一个十六进制的数。如果xyz在R.java中已经存在同名的变量，就不再生成新的变量，而该组件会使用这个已存在的变量的值。</p>
 <p>既然组件的id属性是一个资源id就可以，那么自然可以设置任何已经存在的资源id值，例如，@drawable/icon、@string/ok、@+string/you等。也可以设置android系统中已存在的资源id，例如@id/android:list，那么，这个android是什么意思呢，实际上，这个android就是系统的R类（在R.java文件中）所在的package。</p>
 <p>我们可以在Java代码编辑区输入android.R.id.，就会列出相应的资源id，例如，也可以设置id属性值为@id/android:message。</p>
-<h3 id="利用系统定义的字符串资源"><a href="#利用系统定义的字符串资源" class="headerlink" title="利用系统定义的字符串资源"></a>利用系统定义的字符串资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	java: android.R.string.string_name  </div><div class="line">	XML: @string/string_name</div><div class="line">	Resources.getString();</div><div class="line">```	</div><div class="line"></div><div class="line">### 利用系统的图片资源</div></pre></td></tr></table></figure>
-<p>  java: android.R.drawable.ImageName<br>    xml: android:icon=”@android:drawable/ImageName”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 使用系统颜色</div></pre></td></tr></table></figure></p>
-<p>  java: android.R.color.red<br>    xml: “@android:color/red”<br>    getResources().getColor()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### dimen资源</div></pre></td></tr></table></figure></p>
-<pre><code>java  R.dimen.dimen_name
-XML    @dimen/dimen_name
-Resources.getDimension()
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 使用系统Style</div></pre></td></tr></table></figure>
-<pre><code>android:textAppearance=&quot;?android:attr/textAppearanceMedium&quot; 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### XML资源</div></pre></td></tr></table></figure>
-<pre><code>java: R.xml.xml_name
-Resources.getXml()
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 使用系统隐藏资源</div><div class="line">Android中没有公开的资源，直接引用在编译时就会报错，需要使用特殊的方法。</div></pre></td></tr></table></figure>
-<pre><code>int lebId = Resources.getSystem()
-        .getIdentifier(&quot;permlab_accessNetworkState&quot;, 
-            &quot;string&quot;, &quot;android&quot;);
-String lab = getString(lebId);
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">getIdentifier方法说明</div></pre></td></tr></table></figure>
-<pre><code>/**
- * Return a resource identifier for the given resource name.  A fully
- * qualified resource name is of the form &quot;package:type/entry&quot;.  The first
- * two components (package and type) are optional if defType and
- * defPackage, respectively, are specified here.
- * 
- * &lt;p&gt;Note: use of this function is discouraged.  It is much more
- * efficient to retrieve resources by identifier than by name.
- * 
- * @param name The name of the desired resource.
- * @param defType Optional default resource type to find, if &quot;type/&quot; is
- *                not included in the name.  Can be null to require an
- *                explicit type.
- * @param defPackage Optional default package to find, if &quot;package:&quot; is
- *                   not included in the name.  Can be null to require an
- *                   explicit package.
- * 
- * @return int The associated resource identifier.  Returns 0 if no such
- *         resource was found.  (0 is not a valid resource ID.)
- */
-public int getIdentifier(String name, String defType, String defPackage) {
-    return mResourcesImpl.getIdentifier(name, defType, defPackage);
-}
-</code></pre><p>```</p>
+<h3 id="利用系统定义的字符串资源"><a href="#利用系统定义的字符串资源" class="headerlink" title="利用系统定义的字符串资源"></a>利用系统定义的字符串资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java: android.R.string.string_name  </div><div class="line">XML: @string/string_name</div><div class="line">Resources.getString();</div></pre></td></tr></table></figure>
+<h3 id="利用系统的图片资源"><a href="#利用系统的图片资源" class="headerlink" title="利用系统的图片资源"></a>利用系统的图片资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  java: android.R.drawable.ImageName</div><div class="line">xml: android:icon=&quot;@android:drawable/ImageName&quot;</div></pre></td></tr></table></figure>
+<h3 id="使用系统颜色"><a href="#使用系统颜色" class="headerlink" title="使用系统颜色"></a>使用系统颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> java: android.R.color.red</div><div class="line">xml: &quot;@android:color/red&quot;</div><div class="line">getResources().getColor()</div></pre></td></tr></table></figure>
+<h3 id="dimen资源"><a href="#dimen资源" class="headerlink" title="dimen资源"></a>dimen资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java  R.dimen.dimen_name</div><div class="line">XML    @dimen/dimen_name</div><div class="line">Resources.getDimension()</div></pre></td></tr></table></figure>
+<h3 id="使用系统Style"><a href="#使用系统Style" class="headerlink" title="使用系统Style"></a>使用系统Style</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:textAppearance=&quot;?android:attr/textAppearanceMedium&quot;</div></pre></td></tr></table></figure>
+<h3 id="XML资源"><a href="#XML资源" class="headerlink" title="XML资源"></a>XML资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java: R.xml.xml_name</div><div class="line">Resources.getXml()</div></pre></td></tr></table></figure>
+<h2 id="使用系统隐藏资源"><a href="#使用系统隐藏资源" class="headerlink" title="使用系统隐藏资源"></a>使用系统隐藏资源</h2><p>Android中没有公开的资源，直接引用在编译时就会报错，需要使用特殊的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">int lebId = Resources.getSystem().getIdentifier(&quot;permlab_accessNetworkState&quot;, &quot;string&quot;, &quot;android&quot;);</div><div class="line">String lab = getString(lebId);</div></pre></td></tr></table></figure>
+<p>getIdentifier方法说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Return a resource identifier for the given resource name.  A fully</div><div class="line"> * qualified resource name is of the form &quot;package:type/entry&quot;.  The first</div><div class="line"> * two components (package and type) are optional if defType and</div><div class="line"> * defPackage, respectively, are specified here.</div><div class="line"> * </div><div class="line"> * &lt;p&gt;Note: use of this function is discouraged.  It is much more</div><div class="line"> * efficient to retrieve resources by identifier than by name.</div><div class="line"> * </div><div class="line"> * @param name The name of the desired resource.</div><div class="line"> * @param defType Optional default resource type to find, if &quot;type/&quot; is</div><div class="line"> *                not included in the name.  Can be null to require an</div><div class="line"> *                explicit type.</div><div class="line"> * @param defPackage Optional default package to find, if &quot;package:&quot; is</div><div class="line"> *                   not included in the name.  Can be null to require an</div><div class="line"> *                   explicit package.</div><div class="line"> * </div><div class="line"> * @return int The associated resource identifier.  Returns 0 if no such</div><div class="line"> *         resource was found.  (0 is not a valid resource ID.)</div><div class="line"> */</div><div class="line">public int getIdentifier(String name, String defType, String defPackage) &#123;</div><div class="line">    return mResourcesImpl.getIdentifier(name, defType, defPackage);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -749,7 +718,7 @@ public int getIdentifier(String name, String defType, String defPackage) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android各种资源"><span class="nav-number">2.</span> <span class="nav-text">Android各种资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用系统公开资源"><span class="nav-number">3.</span> <span class="nav-text">使用系统公开资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id和-id区别"><span class="nav-number">4.</span> <span class="nav-text">@id和@+id区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用系统定义的字符串资源"><span class="nav-number">4.1.</span> <span class="nav-text">利用系统定义的字符串资源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android各种资源"><span class="nav-number">2.</span> <span class="nav-text">Android各种资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用系统公开资源"><span class="nav-number">3.</span> <span class="nav-text">使用系统公开资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id和-id区别"><span class="nav-number">4.</span> <span class="nav-text">@id和@+id区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用系统定义的字符串资源"><span class="nav-number">4.1.</span> <span class="nav-text">利用系统定义的字符串资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用系统的图片资源"><span class="nav-number">4.2.</span> <span class="nav-text">利用系统的图片资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用系统颜色"><span class="nav-number">4.3.</span> <span class="nav-text">使用系统颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimen资源"><span class="nav-number">4.4.</span> <span class="nav-text">dimen资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用系统Style"><span class="nav-number">4.5.</span> <span class="nav-text">使用系统Style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML资源"><span class="nav-number">4.6.</span> <span class="nav-text">XML资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用系统隐藏资源"><span class="nav-number">5.</span> <span class="nav-text">使用系统隐藏资源</span></a></li></ol></div>
             
 
           </div>
