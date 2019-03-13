@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="概述java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。  StringString类是final修饰的，不能被继承，String类对象创建后不能修改，由0或多个字符组成，包含在一对双引号之间。 常用方法 构造方法，String有11个构造方法，支持传入不同">
+<meta name="description" content="java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。">
 <meta name="keywords" content="java,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String详解">
 <meta property="og:url" content="http://weibo.com/sunnydhy/2018/06/13/String/index.html">
 <meta property="og:site_name" content="dhyuestc&#39;s Blog">
-<meta property="og:description" content="概述java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。  StringString类是final修饰的，不能被继承，String类对象创建后不能修改，由0或多个字符组成，包含在一对双引号之间。 常用方法 构造方法，String有11个构造方法，支持传入不同">
+<meta property="og:description" content="java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://weibo.com/uploads/String/String.png">
 <meta property="og:image" content="http://weibo.com/uploads/String/StringVS.png">
-<meta property="og:updated_time" content="2019-03-13T14:20:58.749Z">
+<meta property="og:updated_time" content="2019-03-13T14:26:10.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String详解">
-<meta name="twitter:description" content="概述java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。  StringString类是final修饰的，不能被继承，String类对象创建后不能修改，由0或多个字符组成，包含在一对双引号之间。 常用方法 构造方法，String有11个构造方法，支持传入不同">
+<meta name="twitter:description" content="java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。 下面详细分析下这三个字符串类，并做对比总结。">
 <meta name="twitter:image" content="http://weibo.com/uploads/String/String.png">
 
 
@@ -430,8 +430,8 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。</p>
-<p>下面详细分析下这三个字符串类，并做对比总结。</p>
+        <p>java中String、StringBuffer、StringBuilder是编程中经常使用的字符串类,他们之间的区别也是经常在面试中会问到的问题。</p>
+<p>下面详细分析下这三个字符串类，并做对比总结。<a id="more"></a></p>
 <p><img src="/uploads/String/String.png" alt="思维导图"></p>
 <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><pre><code>String类是final修饰的，不能被继承，String类对象创建后不能修改，由0或多个字符组成，包含在一对双引号之间。
 </code></pre><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
@@ -915,7 +915,7 @@ equal方法是java.lang.Object的方法，也就是所以的Java类都会有的�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串与基本类型的转换"><span class="nav-number">2.2.</span> <span class="nav-text">字符串与基本类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String常量池"><span class="nav-number">2.3.</span> <span class="nav-text">String常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-amp-equal"><span class="nav-number">2.4.</span> <span class="nav-text">==  && equal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象不可变"><span class="nav-number">2.5.</span> <span class="nav-text">String对象不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ascii码"><span class="nav-number">2.6.</span> <span class="nav-text">Ascii码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer"><span class="nav-number">3.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法-1"><span class="nav-number">3.1.</span> <span class="nav-text">常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">4.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String、StringBuffer和StringBuilder的异同"><span class="nav-number">5.</span> <span class="nav-text">String、StringBuffer和StringBuilder的异同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">6.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试考点"><span class="nav-number">7.</span> <span class="nav-text">面试考点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">8.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">9.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">11.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串与基本类型的转换"><span class="nav-number">1.2.</span> <span class="nav-text">字符串与基本类型的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String常量池"><span class="nav-number">1.3.</span> <span class="nav-text">String常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-amp-equal"><span class="nav-number">1.4.</span> <span class="nav-text">==  && equal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String对象不可变"><span class="nav-number">1.5.</span> <span class="nav-text">String对象不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ascii码"><span class="nav-number">1.6.</span> <span class="nav-text">Ascii码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuffer"><span class="nav-number">2.</span> <span class="nav-text">StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder"><span class="nav-number">3.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String、StringBuffer和StringBuilder的异同"><span class="nav-number">4.</span> <span class="nav-text">String、StringBuffer和StringBuilder的异同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试考点"><span class="nav-number">6.</span> <span class="nav-text">面试考点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">7.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">8.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">10.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
             
 
           </div>
