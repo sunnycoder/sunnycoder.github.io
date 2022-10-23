@@ -148,8 +148,8 @@
         <category>web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>markdown</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -363,8 +363,8 @@
         <category>blog</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>blog</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
